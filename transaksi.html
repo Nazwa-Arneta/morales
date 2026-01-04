@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <!-- Pengaturan karakter dan tampilan responsif -->
+    <meta charset="UTF-8" />
+    <title>Transaksi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Import Bootstrap untuk styling -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS buatan sendiri -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <!-- Navbar digunakan sebagai menu navigasi utama -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+      <div class="container">
+        <!-- Logo dan nama aplikasi -->
+        <a class="navbar-brand d-flex align-items-center" href="beranda.html">
+          <img src="logo.png" width="30" class="me-2" />
+          Perpustakaan Digital
+        </a>
+
+        <!-- Tombol navbar untuk layar kecil -->
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu navbar -->
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="beranda.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <!-- Menu aktif -->
+              <a class="nav-link active" href="transaksi.html">Transaksi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profil.html">Profil</a>
+            </li>
+            <li class="nav-item">
+              <!-- Tombol logout memanggil fungsi logout di JavaScript -->
+              <a class="nav-link text-danger" href="#" onclick="logout()"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= FORM TRANSAKSI ================= -->
+    <div class="container my-5">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h4>Form Transaksi</h4>
+
+          <!-- Form untuk input data transaksi -->
+          <form id="formTransaksi">
+            <!-- Input nama peminjam -->
+            <input
+              class="form-control mb-2"
+              id="peminjam"
+              placeholder="Nama Peminjam"
+            />
+
+            <!-- Input nama buku -->
+            <input
+              class="form-control mb-2"
+              id="nama"
+              placeholder="Nama Buku"
+            />
+
+            <!-- Input jumlah buku -->
+            <input
+              class="form-control mb-2"
+              id="jumlah"
+              type="number"
+              placeholder="Jumlah"
+            />
+
+            <!-- Pilihan kategori buku -->
+            <select id="kategori" class="form-select mb-2">
+              <option value="">Pilih Kategori</option>
+              <option value="Fiksi">Fiksi</option>
+              <option value="Non-Fiksi">Non-Fiksi</option>
+              <option value="Anak">Anak</option>
+            </select>
+
+            <!-- Pilihan status peminjaman -->
+            <!-- Value WAJIB diisi supaya validasi JS tidak error -->
+            <select id="status" class="form-select mb-2">
+              <option value="">Pilih Status</option>
+              <option value="Dipinjam">Dipinjam</option>
+              <option value="Dikembalikan">Dikembalikan</option>
+            </select>
+
+            <!-- Input tanggal transaksi -->
+            <input type="date" id="tanggal" class="form-control mb-3" />
+
+            <!-- Tombol simpan -->
+            <button class="btn btn-success w-100">Simpan</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ================= TABEL TRANSAKSI ================= -->
+      <!-- Tabel untuk menampilkan data transaksi yang tersimpan -->
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>No</th>
+            <th>Peminjam</th>
+            <th>Buku</th>
+            <th>Jumlah</th>
+            <th>Kategori</th>
+            <th>Status</th>
+            <th>Tanggal</th>
+          </tr>
+        </thead>
+
+        <!-- Data tabel diisi otomatis oleh JavaScript -->
+        <tbody id="tabelTransaksi"></tbody>
+      </table>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript buatan sendiri -->
+    <script src="script.js"></script>
+  </body>
+</html>
